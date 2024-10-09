@@ -55,7 +55,7 @@ public class Main {
         Scanner scs = new Scanner(System.in);
 
 
-        System.out.println(" Cual figura desea ingresar\n"+
+        System.out.println("\n\n\nCual figura desea ingresar\n"+
                 "1. Circulo\n"+
                 "2. Rectangulo\n"+
                 "3. Triangulo\n");
@@ -155,18 +155,22 @@ public class Main {
 
     public static void moverFigura(Circulo c, Triangulo t, Rectangulo r){
 
-        System.out.println("moviendo figuaras");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\n\nCuanto Desea mover las figuras: ");
+        int n = sc.nextInt();
+
+        System.out.println("moviendo figuras");
         System.out.println("circulo");
-        c.moverVerticalmente(9);
-        c.moverHorizontalmente(9);
+        c.moverVerticalmente(n);
+        c.moverHorizontalmente(n);
 
-        System.out.println("triangulo");
-        t.moverVerticalmente(9);
-        t.moverHorizontalmente(9);
+        System.out.println("\ntriangulo");
+        t.moverVerticalmente(n);
+        t.moverHorizontalmente(n);
 
-        System.out.println("Rectangulo");
-        r.moverVerticalmente(9);
-        r.moverHorizontalmente(9);
+        System.out.println("\nRectangulo");
+        r.moverVerticalmente(n);
+        r.moverHorizontalmente(n);
 
 
 
@@ -174,7 +178,7 @@ public class Main {
 
     public static void dibujarFigura(Circulo c, Triangulo t, Rectangulo r){
 
-        System.out.println("dibujando figuras");
+        System.out.println("\n\n\nDibujando figuras");
         System.out.println("Circulo");
         c.dibujar();
 
