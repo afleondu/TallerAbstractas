@@ -15,26 +15,26 @@ public class Triangulo extends Figura implements Movible, Dibujable {
 
     @Override
     public void rotar() {
-        System.out.println("");
+        System.out.println("Rotando el triángulo...");
     }
 
     @Override
     public double calcularArea() {
-        return 0;
+        return (base * altura) / 2;
     }
 
     @Override
     public double calcularPerimetro() {
-        return 0;
+        return 3 * base;
     }
 
     @Override
     public void moverHorizontalmente(int distancia) {
-
+        setX(getY() + distancia);
     }
 
     @Override
     public void moverVerticalmente(int distancia) {
-
+        setY(getY() + distancia);
     }
 }
