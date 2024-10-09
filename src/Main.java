@@ -5,11 +5,10 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Figura circulo = new Circulo(3, 5, 10);
-        Figura rectangulo = new Rectangulo(4, 6, 5, 8);
-        Figura triangulo = new Triangulo(6, 9, 7);
+        Circulo circulo = new Circulo("Azul",3, 5, 10);
+        Rectangulo rectangulo = new Rectangulo("AMarillo",4, 6, 5, 8);
+        Triangulo triangulo = new Triangulo("rojo",6, 9, 7, 7);
 
-        ArrayList<Figura> listaFiguras = new ArrayList<Figura>();
 
         System.out.println("-------------Bienvenido-------------");
 
@@ -27,16 +26,16 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-                    listaFiguras.add(cualfigura(circulo, rectangulo, triangulo));
+                    cualfigura(circulo, triangulo, rectangulo);
                     break;
                 case 2:
-                    calcularArea(listaFiguras);
+                    calcularArea(circulo, triangulo, rectangulo);
                     break;
                 case 3:
-                    moverFigura(listaFiguras);
+                    moverFigura(circulo, triangulo, rectangulo);
                     break;
                 case 4:
-                    dibujarFigura(ListaFigura);
+                    dibujarFigura(circulo, triangulo, rectangulo);
                     break;
                 case 5:
                     paro = true;
@@ -48,11 +47,12 @@ public class Main {
             }
 
 
-        }while(paro);
+        }while(!paro);
     }
 
-    public static void cualfigura(Figura circulo, Figura rectangulo, Figura triangulo){
+    public static void cualfigura(Circulo c, Triangulo t, Rectangulo r){
         Scanner sc = new Scanner(System.in);
+        Scanner scs = new Scanner(System.in);
 
 
         System.out.println(" Cual figura desea ingresar\n"+
@@ -63,92 +63,129 @@ public class Main {
             int x, y;
             double radio;
             int base, altura;
-            Figura figurita;
+            String color;
+
 
             if (figura==1){
-                System.out.println("Ingrese posicion del circulo en x: ");
-                x= sc.nextInt();
+                System.out.println("Circulo datos : ");
 
-                System.out.println("Ingrese posicion del circulo en y: ");
-                y= sc.nextInt();
+                System.out.println("color" + c.getColor());
+                System.out.println("ingresse nuevo color: ");
+                color = scs.next();
 
-                System.out.println("Ingrese radio del circulo: ");
-                radio = sc.nextDouble();
-                figurita = new Circulo(x, y, radio);
+                System.out.println("x" + c.getX());
+                System.out.println("ingresse nuevo x: ");
+                x = scs.nextInt();
+
+                System.out.println("y" + c.getY());
+                System.out.println("ingresse nuevo y: ");
+                y = scs.nextInt();
+
+                System.out.println("ingresse nuevo Radio: ");
+                radio = scs.nextDouble();
+
+                c = new Circulo(color, x , y , radio);
+
             }else if (figura==2){
-            System.out.println("Ingrese posicion del rectangulo en x: ");
-            x= sc.nextInt();
+                System.out.println("Rectagulo datos : ");
 
-            System.out.println("Ingrese posicion del rectangulo en y: ");
-            y= sc.nextInt();
+                System.out.println("color" + r.getColor());
+                System.out.println("ingresse nuevo color: ");
+                color = scs.next();
 
-            System.out.println("Ingrese base del rectagulo: ");
-            base = sc.nextInt();
+                System.out.println("x" + r.getX());
+                System.out.println("ingresse nuevo x: ");
+                x = scs.nextInt();
 
-            System.out.println("Ingrese altura del rectagulo: ");
-            altura = sc.nextInt();
-            figurita = new Rectangulo(x, y, base, altura);
+                System.out.println("y" + r.getY());
+                System.out.println("ingresse nuevo y: ");
+                y = scs.nextInt();
+
+                System.out.println("ingresse nuevo base: ");
+                base = scs.nextInt();
+
+                System.out.println("ingresse nuevo altura: ");
+                altura = scs.nextInt();
+
+                r = new Rectangulo(color, x , y , base, altura);
 
         }else if(figura==3){
-                System.out.println("Ingrese posicion del triangulo en x: ");
-                x= sc.nextInt();
+                System.out.println("Triangulo datos : ");
 
-                System.out.println("Ingrese posicion del triangulo en y: ");
-                y= sc.nextInt();
+                System.out.println("color" + r.getColor());
+                System.out.println("ingresse nuevo color: ");
+                color = scs.next();
 
-                System.out.println("Ingrese base del triangulo: ");
-                base = sc.nextInt();
+                System.out.println("x" + r.getX());
+                System.out.println("ingresse nuevo x: ");
+                x = scs.nextInt();
 
-                System.out.println("Ingrese altura del triangulo: ");
-                altura = sc.nextInt();
-                figurita = new Triangulo(x, y, base, altura);
+                System.out.println("y" + r.getY());
+                System.out.println("ingresse nuevo y: ");
+                y = scs.nextInt();
+
+                System.out.println("ingresse nuevo base: ");
+                base = scs.nextInt();
+
+                System.out.println("ingresse nuevo altura: ");
+                altura = scs.nextInt();
+
+                t = new Triangulo(color, x , y , base, altura);
             }else{
-                return figurita;
+                System.out.println("ingreso invalido");
             }
 
-            return figurita;
     }
 
-    public static void calcularArea(ArrayList<Figura> lista){
+    public static void calcularArea(Circulo c, Triangulo t, Rectangulo r){
         Scanner sc = new Scanner(System.in);
-        System.out.println("seleccione una figura");
-        for(Figura f : lista){
-            System.out.println("id: "+lista.indexOf(f));
-            f.mostrarDatos();
-        }
+        System.out.println("circulo");
+        System.out.println(c.calcularArea());
+        System.out.println(c.calcularPerimetro());
 
-        System.out.println("ingrese Id Figura");
-        int opcion = sc.nextInt();
-        Figura figura = lista.get(opcion);
-        figura.calcularArea();
-        figura.calcularPerimetro();
+        System.out.println("triangulo");
+        System.out.println(t.calcularArea());
+        System.out.println(t.calcularPerimetro());
+
+        System.out.println("Rectangulo");
+        System.out.println(r.calcularArea());
+        System.out.println(r.calcularPerimetro());
+
     }
 
-    public static void moverFigura(ArrayList<Figura> lista){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("seleccione una figura");
-        for(Figura f : lista){
-            System.out.println("id: "+lista.indexOf(f));
-            f.mostrarDatos();
-        }
+    public static void moverFigura(Circulo c, Triangulo t, Rectangulo r){
 
-        System.out.println("ingrese Id Figura");
-        int opcion = sc.nextInt();
-        Figura figura = lista.get(opcion);
-        figura.mover();
+        System.out.println("moviendo figuaras");
+        System.out.println("circulo");
+        c.moverVerticalmente(9);
+        c.moverHorizontalmente(9);
+
+        System.out.println("triangulo");
+        t.moverVerticalmente(9);
+        t.moverHorizontalmente(9);
+
+        System.out.println("Rectangulo");
+        r.moverVerticalmente(9);
+        r.moverHorizontalmente(9);
+
+
+
     }
 
-    public static void dibujarFigura(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("seleccione una figura");
-        for(Figura f : lista){
-            System.out.println("id: "+lista.indexOf(f));
-            f.mostrarDatos();
-        }
+    public static void dibujarFigura(Circulo c, Triangulo t, Rectangulo r){
 
-        System.out.println("ingrese Id Figura");
-        int opcion = sc.nextInt();
-        Figura figura = lista.get(opcion);
-        figura.dibujar();
+        System.out.println("dibujando figuras");
+        System.out.println("Circulo");
+        c.dibujar();
+
+        System.out.println("Triangulo");
+        t.dibujar();
+
+        System.out.println("rectangulo");
+        r.dibujar();
+
+
+
+
     }
 }
