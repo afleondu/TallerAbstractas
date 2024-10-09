@@ -69,19 +69,19 @@ public class Main {
             if (figura==1){
                 System.out.println("Circulo datos : ");
 
-                System.out.println("color" + c.getColor());
-                System.out.println("ingresse nuevo color: ");
+                System.out.println("color: " + c.getColor());
+                System.out.println("ingrese nuevo color: ");
                 color = scs.next();
 
-                System.out.println("x" + c.getX());
-                System.out.println("ingresse nuevo x: ");
+                System.out.println("x: " + c.getX());
+                System.out.println("ingrese nuevo x: ");
                 x = scs.nextInt();
 
-                System.out.println("y" + c.getY());
-                System.out.println("ingresse nuevo y: ");
+                System.out.println("y: " + c.getY());
+                System.out.println("ingrese nuevo y: ");
                 y = scs.nextInt();
 
-                System.out.println("ingresse nuevo Radio: ");
+                System.out.println("ingrese nuevo Radio: ");
                 radio = scs.nextDouble();
 
                 c = new Circulo(color, x , y , radio);
@@ -90,21 +90,21 @@ public class Main {
                 System.out.println("Rectagulo datos : ");
 
                 System.out.println("color" + r.getColor());
-                System.out.println("ingresse nuevo color: ");
+                System.out.println("ingrese nuevo color: ");
                 color = scs.next();
 
                 System.out.println("x" + r.getX());
-                System.out.println("ingresse nuevo x: ");
+                System.out.println("ingrese nuevo x: ");
                 x = scs.nextInt();
 
                 System.out.println("y" + r.getY());
-                System.out.println("ingresse nuevo y: ");
+                System.out.println("ingrese nuevo y: ");
                 y = scs.nextInt();
 
-                System.out.println("ingresse nuevo base: ");
+                System.out.println("ingrese nuevo base: ");
                 base = scs.nextInt();
 
-                System.out.println("ingresse nuevo altura: ");
+                System.out.println("ingrese nuevo altura: ");
                 altura = scs.nextInt();
 
                 r = new Rectangulo(color, x , y , base, altura);
