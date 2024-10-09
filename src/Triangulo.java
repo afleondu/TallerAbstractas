@@ -1,8 +1,8 @@
-public class Triángulo extends Figura implements Movible, Dibujable {
+public class Triangulo extends Figura implements Movible, Dibujable {
     private double base;
     private double altura;
 
-    public Triángulo(String color, int x, int y, double base, double altura) {
+    public Triangulo(String color, int x, int y, double base, double altura) {
         super(color, x, y);
         this.base = base;
         this.altura = altura;
