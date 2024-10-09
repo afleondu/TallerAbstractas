@@ -32,6 +32,19 @@ public class Main {
                 case 2:
                     calcularArea(listaFiguras);
                     break;
+                case 3:
+                    moverFigura(listaFiguras);
+                    break;
+                case 4:
+                    dibujarFigura(ListaFigura);
+                    break;
+                case 5:
+                    paro = true;
+                    break;
+                default:
+                    System.out.println("Ingresaste datos invalidos");
+                    break;
+
             }
 
 
@@ -50,7 +63,7 @@ public class Main {
             int x, y;
             double radio;
             int base, altura;
-            Figura figurita = new Figura();
+            Figura figurita;
 
             if (figura==1){
                 System.out.println("Ingrese posicion del circulo en x: ");
@@ -98,11 +111,47 @@ public class Main {
 
     public static void calcularArea(ArrayList<Figura> lista){
         Scanner sc = new Scanner(System.in);
-        System.out.println(" Cual figura desea ingresar\n"+
-                "1. Circulo\n"+
-                "2. Rectangulo\n"+
-                "3. Triangulo\n");
+        System.out.println("seleccione una figura");
+        for(Figura f : lista){
+            System.out.println("id: "+lista.indexOf(f));
+            f.mostrarDatos();
+        }
 
+        System.out.println("ingrese Id Figura");
+        int opcion = sc.nextInt();
+        Figura figura = lista.get(opcion);
+        figura.calcularArea();
+        figura.calcularPerimetro();
     }
+
+    public static void moverFigura(ArrayList<Figura> lista){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("seleccione una figura");
+        for(Figura f : lista){
+            System.out.println("id: "+lista.indexOf(f));
+            f.mostrarDatos();
+        }
+
+        System.out.println("ingrese Id Figura");
+        int opcion = sc.nextInt();
+        Figura figura = lista.get(opcion);
+        figura.mover();
+    }
+
+    public static void dibujarFigura(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("seleccione una figura");
+        for(Figura f : lista){
+            System.out.println("id: "+lista.indexOf(f));
+            f.mostrarDatos();
+        }
+
+        System.out.println("ingrese Id Figura");
+        int opcion = sc.nextInt();
+        Figura figura = lista.get(opcion);
+        figura.dibujar();
+    }
+
+
 
 }
